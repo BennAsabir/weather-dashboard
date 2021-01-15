@@ -6,3 +6,4 @@ var forecastAPI = 'https://api.openweathermap.org/data/2.5/forecast?q=';
 var units = '&units=metric';
 var getWeatherIcon = 'http://openweathermap.org/img/wn/';
 var searchHistoryArr = [];
+
