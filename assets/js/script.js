@@ -21,6 +21,7 @@ $(document).ready(function() {
     clickHistory();
   }
 
+  // SEARCH CITY FUNCTION 
   function search() {
     $('#search-button').on('click', function() {
       citySearch = $('#search-input')
@@ -37,7 +38,6 @@ $(document).ready(function() {
 
   function getWeather(search) {
     var queryURL = weatherAPI + 'q=' + search + units + APIkey;
-
     $.ajax({
       url: queryURL,
       method: 'GET',
@@ -62,8 +62,8 @@ $(document).ready(function() {
       var weatherIcon = results.weather[0].icon;
       var weatherIconURL = getWeatherIcon + weatherIcon + '.png';
 
+      // STORE HISTORY
       storeHistory(name);
-
       $('#city-name').text(name + ' (' + date + ') ');
       $('#weather-image').attr('src', weatherIconURL);
       $('#temperature').html('<b>Temperature: </b>' + temperature + ' °C');
@@ -87,7 +87,7 @@ $(document).ready(function() {
             '</span>'
         );
 
-        // DRY this out...
+        // IF STATEMENT FOR UV INDEX
         if (uvi < 3) {
           $('#uvi-badge').css('background-color', 'green');
         } else if (uvi < 6) {
@@ -152,7 +152,7 @@ $(document).ready(function() {
       });
     });
   }
-
+  // STORE HISTORY FUNCTION
   function storeHistory(citySearchName) {
     var searchHistoryObj = {};
 
